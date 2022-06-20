@@ -386,12 +386,20 @@
                             <td>${horai} - ${horaf}</td>
                             <td>S/. ${parseFloat(precio).toFixed(2)}</td>
                             <td><span class="badge bg-${estado.toLowerCase() == 'concluido' ? 'success' : 'warning text-dark'}" >${estado}</span></td>
+                            <td><button type="button" class="btn btn-danger" data-transaccion="${transaccion}" id="pdfbtn" ${estado.toLowerCase() == 'concluido' ? '' : 'disabled'}>PDF</button></td>
                         `;
                         tblpacres.appendChild(tr);
                     })
                 }
             })
         }
+
+        $(document).on("click", "#pdfbtn", function (e) {
+            e.preventDefault();
+            const data = { transaccion: e.target.dataset.transaccion }
+
+            window.open(`/tecnico/citamedica/PDF.aspx?transaccion=${data.transaccion}`);
+        })
 
         function fechaConvert(fechas) {
             const fechanac = fechas.split('/');
