@@ -1,0 +1,99 @@
+﻿/*.login {
+    border: 1px solid #6f6f6f;
+    border-radius: 5px;
+    padding:10px;
+    max-width: 500px;
+    width:90%;
+}*/
+
+.mw-500 {
+    max-width: 500px;
+    width: 90%;
+}
+
+.color-red {
+    color: red;
+}
+
+
+.login-2 {
+    height: 100vh;
+    background-image: url(../img/blur-hospital.jpg);
+    background-position: center center;
+    background-size: cover;
+    /* Display flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.caja-login {
+    background-color: rgba(0, 0, 0, 0.436);
+    border: 2px solid #f2f2f255;
+    box-shadow: 0 0 15px 0 #2076e0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+}
+
+.caja-input .email {
+    display: flex;
+    flex-direction: column;
+}
+
+.email, .password {
+    margin-top: 5px;
+}
+
+    .email label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #fff;
+        font-size: 18px;
+    }
+
+.caja-input .password {
+    display: flex;
+    flex-direction: column;
+}
+
+.password label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.password input, .email input {
+    padding: 6px;
+    border: none;
+    border: #f2f2f2 1px solid;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.boton {
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: #f2f2f2;
+    background-color: rgb(110, 155, 216);
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color .5s ease-in-out;
+}
+
+    .boton:hover {
+        background-color: rgb(99, 139, 196);
+    }
+
+.imagen-login {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -80px;
+    margin-left: 65px;
+}
