@@ -134,7 +134,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="img\logo.png" />
     <Content Include="medico\historial\index.aspx" />
-    <Content Include="paciente\citasmedicas\PDF.aspx" />
+    <Content Include="tecnico\citamedica\PDF.aspx" />
     <Content Include="Pdf.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="login.aspx" />
@@ -309,11 +309,11 @@
     <Compile Include="paciente\citasmedicas\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="paciente\citasmedicas\PDF.aspx.cs">
+    <Compile Include="tecnico\citamedica\PDF.aspx.cs">
       <DependentUpon>PDF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paciente\citasmedicas\PDF.aspx.designer.cs">
+    <Compile Include="tecnico\citamedica\PDF.aspx.designer.cs">
       <DependentUpon>PDF.aspx</DependentUpon>
     </Compile>
     <Compile Include="paciente\index.aspx.cs">
@@ -401,6 +401,7 @@
     </Compile>
     <Compile Include="ViewClass\ViewCitaMedico.cs" />
     <Compile Include="ViewClass\ViewCitaPaciente.cs" />
+    <Compile Include="ViewClass\ViewConsulta.cs" />
     <Compile Include="ViewClass\ViewConsultaObtener.cs" />
     <Compile Include="ViewClass\ViewConsultas.cs" />
     <Compile Include="ViewClass\ViewConsultasDisponibles.cs" />

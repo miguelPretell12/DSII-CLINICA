@@ -30,6 +30,7 @@
                             <th>Horario de Cita</th>
                             <th>Precio</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody></tbody>

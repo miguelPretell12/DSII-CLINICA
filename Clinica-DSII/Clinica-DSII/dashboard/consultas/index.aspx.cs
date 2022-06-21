@@ -19,10 +19,32 @@ namespace Clinica_DSII.dashboard.consultas
         }
 
         [WebMethod]
+        public static int update(string idmed, string idesp, string idhor, string precio, string idcons)
+        {
+            DaoConsulta dao = new DaoConsulta();
+            Consulta cons = new Consulta();
+            cons.idmedico = int.Parse(idmed);
+            cons.especialidad = int.Parse(idesp);
+            cons.horario = int.Parse(idhor);
+            cons.precio = double.Parse(precio);
+            cons.idconsulta = int.Parse(idcons);
+
+            return dao.update(cons);
+        } 
+
+        [WebMethod]
         public static List<ViewConsultas> getConsultas()
         {
             DaoConsulta dao = new DaoConsulta();
             return dao.getConsultas();
+        }
+
+        [WebMethod]
+        public static ViewConsulta getConsulta(string idcons)
+        {
+            DaoConsulta dao = new DaoConsulta();
+            int idc = int.Parse(idcons);
+            return dao.GetConsulta(idc);
         }
 
         [WebMethod]

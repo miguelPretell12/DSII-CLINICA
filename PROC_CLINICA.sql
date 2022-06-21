@@ -245,7 +245,16 @@ as
 	END
 go
 
-
+create proc PROC_EDITAR_CONSULTA @idmedico int, @idespecialidad int, @idhorario int, @precio decimal(8,2), @idcons int
+as
+	update consultas set
+		idmedico = @idmedico,
+		idespecialidad = @idespecialidad,
+		idhorario = @idhorario,
+		precio = @precio
+	where idconsulta = @idcons
+go
+delete from consultas where idconsulta = 1
 create proc PROC_OBTENER_CONSULTA @idconsulta int
 as
 	select 
@@ -692,6 +701,11 @@ as
 go
 
 exec PROC_LISTAR_RESERVAS_PAC 3
+go
+
+create proc PROC_GET_CONSULTA @idcons
+as
+	
 go
 
 create proc PROC_RESERVAR_PACIENTE_SAVE @idpac int, @idcons int, 

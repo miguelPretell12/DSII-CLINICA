@@ -176,7 +176,7 @@
                     if (e) {
                         const { d } = e;
                         if (d) {
-                            swal("Exito!!!", "Se regsitro correctamente", "success");
+                            swal("Exito!!!", "Se registro correctamente", "success");
                             $("#modalconsulta").modal('hide')
                             tableConsultas()
                         } else {
@@ -189,6 +189,7 @@
 
         // actualizar la consulta
         function update(data) {
+            $("#spinner").show()
             $.ajax({
                 type: 'POST',
                 url: '/dashboard/consultas/index.aspx/update',
@@ -197,6 +198,18 @@
                 data: JSON.stringify(data),
                 success: function (e) {
                     const { d } = e;
+                    
+                    if (e) {
+                        $("#spinner").hide()
+                        const { d } = e;
+                        if (d) {
+                            swal("Exito!!!", "Se actualizo correctamente", "success");
+                            $("#modalconsulta").modal('hide')
+                            tableConsultas()
+                        } else {
+                            swal("Error!!", "", "error")
+                        }
+                    }
                 }
             })
         }
@@ -209,10 +222,22 @@
                 dataType: "json",
                 data: JSON.stringify(data),
                 success: function (e) {
-                    const {  } = e.d;
+                    const { idconsulta, medico, horario, idespecialidad, especialidad, precio } = e.d;
+                    $("#idconsulta").val(idconsulta)
+                    $("#medico").val(medico)
+                    $("#idespecialidad").val(idespecialidad)
+                    $("#especialidad").val(especialidad)
+                    $("#horario").val(horario)
+                    $("#precio").val(precio)
                 }
             })
         }
+
+        $(document).on('click', '#editar', function (e) {
+            const data = { idcons: e.target.dataset.id }
+
+            getConsulta(data)
+        })
 
         // llenar la tabla
         function tableConsultas() {
@@ -284,6 +309,7 @@
             if (idconsulta.value == "") {
                 save(data);
             } else {
+                data.idcons = idconsulta.value
                 update(data)
             }
             

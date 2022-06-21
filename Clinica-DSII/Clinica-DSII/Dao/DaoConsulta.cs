@@ -46,6 +46,36 @@ namespace Clinica_DSII.Dao
             return list;
         }
 
+        public ViewConsulta GetConsulta(int idcons) {
+            ViewConsulta esp = new ViewConsulta();
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
+            cone.Open();
+            try
+            {
+                cmd = new SqlCommand("PROC_OBTENER_CONSULTA", cone);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idconsulta", idcons);
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    esp.idconsulta = int.Parse(reader["Idespecialidad"].ToString());
+                    esp.medico = int.Parse(reader["Idmedico"].ToString());
+                    esp.idespecialidad = int.Parse(reader["Idespecialidad"].ToString());
+                    esp.especialidad = reader["Especialidad"].ToString();
+                    esp.horario = int.Parse(reader["Horario"].ToString());
+                    esp.precio = double.Parse(reader["Precio"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            cone.Close();
+            return esp;
+        }
+
         public List<ViewMedico> getMedicos() {
             List<ViewMedico> list = new List<ViewMedico>();
             SqlCommand cmd = null;
@@ -119,6 +149,25 @@ namespace Clinica_DSII.Dao
             cmd.ExecuteNonQuery(); // Enviar la orden al servidor
 
             int rpt = (int) retorno.Value;
+            cone.Close(); // Cerrar la conexion al servidor
+            cmd.Dispose(); // Liberar recursos del comando            
+
+            return rpt;
+        }
+
+        public int update(Consulta cons)
+        {
+            SqlCommand cmd = new SqlCommand("PROC_EDITAR_CONSULTA", cone);
+            cmd.Parameters.AddWithValue("@idmedico", cons.idmedico);
+            cmd.Parameters.AddWithValue("@idespecialidad", cons.especialidad);
+            cmd.Parameters.AddWithValue("@idhorario", cons.horario);
+            cmd.Parameters.AddWithValue("@precio", cons.precio);
+            cmd.Parameters.AddWithValue("@idcons", cons.idconsulta);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cone.Open(); // Abrir la conexion al servidor
+           int rpt = cmd.ExecuteNonQuery(); // Enviar la orden al servidor
+
             cone.Close(); // Cerrar la conexion al servidor
             cmd.Dispose(); // Liberar recursos del comando            
 
