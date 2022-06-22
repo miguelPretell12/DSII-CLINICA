@@ -10,7 +10,7 @@
                 <li><a href="/medico/historial/index">Historial Médica</a></li>
             </ul>
         </div>
-        <div class="contenido container"> 
+        <div class="contenido container" style="overflow-y: scroll"> 
             <h1>Consultar Cita</h1>
         <div class="row row-cols-1 row-cols-md-3">
             <div class="col">

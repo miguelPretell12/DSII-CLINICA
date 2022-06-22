@@ -29,6 +29,36 @@
                 </button>
             </div>
         </div>
+            <div id="mensaje">
+
+            </div>
+            <div class="mt-3" id="respuesta">
+               <div class="row row-cols-1 row-cols-md-2 " style="margin-top: 15px">
+                        <input type="hidden"  id="idespmed"/>
+                        <input type="hidden"  id="idusuario" />
+                        <div class="col">
+                            <label>Médico</label>
+                            <input type="text" class="form-control" id="medico" disabled  style="text-transform: capitalize"/>
+                        </div>
+                        <div class="col">
+                            <label>D.N.I.</label>
+                            <input type="text" class="form-control" id="docdni" disabled  style="text-transform: capitalize"/>
+                        </div>
+                        <div class="col">
+                            <label>Correo Electronico</label>
+                            <input type="text" class="form-control" id="correo" disabled style="text-transform: capitalize" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px">
+                        <div class="col">
+                            <label>Especialidad</label>
+                            <select id="especialidad" class="form-control" style="width: 50%">
+                                <option value="">--SELECCIONE--</option>
+                            </select>
+                        </div>
+                    </div>
+                <input type="submit" class="btn btn-success mt-2" id="guardar" value="Guardar" />
+            </div>
         </div>
     </div>
     <%-- Modal - Listado de Medicos con especialidad --%>
@@ -56,36 +86,7 @@
       </div>
     </div>
 
-    <div id="mensaje">
-
-    </div>
-    <div class="mt-3" id="respuesta">
-       <div class="row row-cols-1 row-cols-md-2 " style="margin-top: 15px">
-                <input type="hidden"  id="idespmed"/>
-                <input type="hidden"  id="idusuario" />
-                <div class="col">
-                    <label>Médico</label>
-                    <input type="text" class="form-control" id="medico" disabled  style="text-transform: capitalize"/>
-                </div>
-                <div class="col">
-                    <label>D.N.I.</label>
-                    <input type="text" class="form-control" id="docdni" disabled  style="text-transform: capitalize"/>
-                </div>
-                <div class="col">
-                    <label>Correo Electronico</label>
-                    <input type="text" class="form-control" id="correo" disabled style="text-transform: capitalize" />
-                </div>
-            </div>
-            <div class="row" style="margin-top: 15px">
-                <div class="col">
-                    <label>Especialidad</label>
-                    <select id="especialidad" class="form-control" style="width: 50%">
-                        <option value="">--SELECCIONE--</option>
-                    </select>
-                </div>
-            </div>
-        <input type="submit" class="btn btn-success mt-2" id="guardar" value="Guardar" />
-    </div>
+    
     <script type="text/javascript">
         const contenedorMensaje = document.querySelector("#mensaje");
         const contenedorUL = document.querySelector("#contenedorUL");

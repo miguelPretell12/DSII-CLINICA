@@ -24,14 +24,14 @@ namespace Clinica_DSII.medico.historial
         public static List<ViewCitaMedico> getfiltercitamedico(string fcita)
         {
             DaoMedicoFicha dao = new DaoMedicoFicha();
-            return dao.getfilterCitasMedico(fcita, "3");
+            return dao.getfilterCitasMedico(fcita, HttpContext.Current.Session["idusuario"] as string);
         }
 
         [WebMethod]
         public static List<ViewCitaMedico> getcitamedico()
         {
             DaoMedicoFicha dao = new DaoMedicoFicha();
-            return dao.getCitasMedico("3");
+            return dao.getCitasMedico(HttpContext.Current.Session["idusuario"] as string);
         }
     }
 }
